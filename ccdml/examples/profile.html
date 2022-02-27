@@ -354,29 +354,33 @@
                   <div class="row">
                     <div class="col-lg-6">
                       <div class="form-group">
-                        <label class="form-control-label" for="input-username">First name</label>
-                        <input type="text" id="input-username" class="form-control" placeholder="Username" value="Admin">
+                        <label class="form-control-label" for="input-username">First Name</label>
+                        <input type="text" id="input-fname" class="form-control" placeholder="First Name" required>
                       </div>
+                      <p id="fnametext"  style="color:#bf0300;"></p>
                     </div>
                     <div class="col-lg-6">
                       <div class="form-group">
-                        <label class="form-control-label" for="input-email">Last name</label>
-                        <input type="email" id="input-email" class="form-control" placeholder="Admin">
+                        <label class="form-control-label" for="input-username">Last Name</label>
+                        <input type="text" id="input-lname" class="form-control" placeholder="Last Name" required>
                       </div>
+                      <p id="lnametext"  style="color:#bf0300;"></p>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label class="form-control-label" for="input-first-name">Email ID</label>
-                        <input type="text" id="input-first-name" class="form-control" placeholder="First name" value="admin@example.com">
+                        <input type="email" id="input-email" class="form-control" placeholder="admin@example.com" required>
                       </div>
+                      <p id="emailtext"  style="color:#bf0300;"></p>
                     </div>
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label class="form-control-label" for="input-last-name">Contact</label>
-                        <input type="text" id="input-last-name" class="form-control" placeholder="Last name" value="XXXXXXXX999">
+                        <input type="tel" id="input-contact" class="form-control" placeholder="XXXXXXXX999" pattern="[0-9]{10}" max="10" required>
                       </div>
+                      <p id="contacttext"  style="color:#bf0300;"></p>
                     </div>
                   </div>
                 </div>
@@ -388,28 +392,33 @@
                     <div class="col-md-12">
                       <div class="form-group">
                         <label class="form-control-label" for="input-address">Address</label>
-                        <input id="input-address" class="form-control" placeholder="Home Address" value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09" type="text">
+                        <input id="input-address" class="form-control" placeholder="Home Address" type="text">
                       </div>
+                      <p id="addresstext"  style="color:#bf0300;"></p>
                     </div>
                   </div>
+
                   <div class="row">
                     <div class="col-lg-4">
                       <div class="form-group">
                         <label class="form-control-label" for="input-city">City</label>
                         <input type="text" id="input-city" class="form-control" placeholder="City" value="Mumbai">
                       </div>
+                      <p id="citytext"  style="color:#bf0300;"></p>
                     </div>
                     <div class="col-lg-4">
                       <div class="form-group">
                         <label class="form-control-label" for="input-country">Country</label>
                         <input type="text" id="input-country" class="form-control" placeholder="Country" value="India">
                       </div>
+                      <p id="countrytext"  style="color:#bf0300;"></p>
                     </div>
                     <div class="col-lg-4">
                       <div class="form-group">
                         <label class="form-control-label" for="input-country">Postal code</label>
                         <input type="number" id="input-postal-code" class="form-control" placeholder="Postal code">
                       </div>
+                      <p id="postalcodetext"  style="color:#bf0300;"></p>
                     </div>
                   </div>
                 </div>
@@ -419,9 +428,14 @@
                 <div class="pl-lg-4">
                   <div class="form-group">
                     <label class="form-control-label">About Me</label>
-                    <textarea rows="4" class="form-control" placeholder="A few words about you ...">Write your description here</textarea>
+                    <textarea rows="4" class="form-control" id="input-about" placeholder="A few words about you ..."></textarea>
                   </div>
                 </div>
+
+                <div class="text-center">
+                  <button type="button" class="btn btn-primary mt-4" onclick="validateProfileDetails()"><a href="./dashboard.html" style="color: white;">Submit</a></button>
+                </div>
+
               </form>
             </div>
           </div>
@@ -441,6 +455,44 @@
   </div>
   <!-- Argon Scripts -->
   <!-- Core -->
+  <script>
+    function validateProfileDetails(){
+      var fname = document.getElementById('input-fname').value;
+      var lname = document.getElementById('input-lname').value;
+      var email = document.getElementById('input-email').value;
+      var contact = document.getElementById('input-contact').value;
+      var address = document.getElementById('input-address').value;
+      var city = document.getElementById('input-city').value;
+      var country = document.getElementById('input-country').value;
+      var postalcode = document.getElementById('input-postal-code').value;
+
+      if(fname==""){
+        document.getElementById("fnametext").innerHTML = "Fill the name!";
+      }
+      if(lname==""){
+        document.getElementById("lnametext").innerHTML = "Fill the last name!";
+      }
+      if(email == ""){
+        document.getElementById("emailtext").innerHTML = "Fill the email!";  
+      }
+      if(contact == ""){
+        document.getElementById("contacttext").innerHTML = "Fill the contact!";  
+      }
+      if(address == ""){
+        document.getElementById("addresstext").innerHTML = "Fill the address!";  
+      }
+      if(city == ""){
+        document.getElementById("citytext").innerHTML = "Fill the City!";  
+      }
+      if(country == ""){
+        document.getElementById("countrytext").innerHTML = "Fill the country!";  
+      }
+      if(postalcode == ""){
+        document.getElementById("postalcodetext").innerHTML = "Fill the Postal Code!";  
+      }
+
+    }
+  </script>
   <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
   <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <script src="../assets/vendor/js-cookie/js.cookie.js"></script>

@@ -148,24 +148,29 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Name" type="text">
+                    <input class="form-control" placeholder="Name" type="text"id="name" required>
                   </div>
+                    <p id="nametext"  style="color:#bf0300;"></p>
                 </div>
+
                 <div class="form-group">
                   <div class="input-group input-group-merge input-group-alternative mb-3">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Email" type="email">
+                    <input class="form-control" placeholder="Email" type="email" id="email" required>
                   </div>
+                  <p id="emailtext"  style="color:#bf0300;"></p>
                 </div>
+               
                 <div class="form-group">
                   <div class="input-group input-group-merge input-group-alternative">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Password" type="password">
+                    <input class="form-control" placeholder="Password" type="password" id="password" required>
                   </div>
+                  <p id="passwordtext"  style="color:#bf0300;"></p>
                 </div>
                 <!-- <div class="text-muted font-italic"><small>password strength: <span class="text-success font-weight-700">strong</span></small></div> -->
                 <div class="row my-4">
@@ -179,7 +184,7 @@
                   </div>
                 </div>
                 <div class="text-center">
-                  <button type="button" class="btn btn-primary mt-4"><a href="./login.html" style="color: white;">Create account</a></button>
+                  <button type="button" class="btn btn-primary mt-4" onclick="validateRegisterDetails()"><a href="./login.html" style="color: white;">Create account</a></button>
                 </div>
               </form>
             </div>
@@ -218,6 +223,26 @@
   </footer>
   <!-- Argon Scripts -->
   <!-- Core -->
+  <script>
+    function validateRegisterDetails(){
+      var name = document.getElementById('name').value;
+      var email = document.getElementById('email').value;
+      var pw = document.getElementById('password').value;
+      if(name==""){
+        document.getElementById("nametext").innerHTML = "Fill the name please!";
+      }
+      if(email == ""){
+        document.getElementById("emailtext").innerHTML = "Fill the email please!";  
+      }
+      if(pw == "") {  
+      document.getElementById("passwordtext").innerHTML = "Fill the password please!";    
+      }  
+      //minimum password length validation  
+      if(pw.length < 8 ) {  
+        document.getElementById("passwordtext").innerHTML = "Password length must be atleast 8 characters";   
+      }  
+    }
+  </script>
   <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
   <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <script src="../assets/vendor/js-cookie/js.cookie.js"></script>
